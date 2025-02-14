@@ -1,0 +1,39 @@
+@use "../../styles/media-queries.scss" as *;
+
+.header {
+  display: flex;
+  height: 8rem;
+  font-size: 1.7rem;
+  color: #fff;
+  align-items: center;
+
+  transition: all 0.2s ease-in-out;
+
+  img {
+    margin-left: auto;
+    height: 1.1em;
+  }
+
+  h1 {
+    margin: 0 auto 0 1rem;
+    font-size: 1em;
+  }
+
+  span {
+    color: #6e6cff;
+  }
+
+  @include lt-lg {
+    height: 6rem;
+    font-size: 1.4em;
+
+    h1 {
+      margin: 0 auto 0 0.5rem;
+    }
+  }
+
+  @include lt-sm {
+    height: 5rem;
+    font-size: 1.2em;
+  }
+}

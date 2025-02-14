@@ -1,0 +1,126 @@
+@use "../../../../styles/media-queries.scss" as *;
+
+.gridOptions {
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  align-self: stretch;
+}
+
+.gridIcon {
+  height: 0.95em;
+}
+
+.optionsHeader {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.7em;
+
+  span {
+    color: #b9bbbd;
+    font-size: 0.95em;
+    margin-left: 0.7em;
+  }
+
+  button {
+    position: relative;
+    height: 2.1em;
+    width: 2.1em;
+    border: 1px solid #2f343d;
+    border-radius: 0.2em;
+    background-color: #20242b;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      height: 1.2em;
+    }
+  }
+}
+
+.saveBtn {
+  margin-left: auto;
+}
+
+.resetBtn {
+  margin-left: 0.4rem;
+}
+
+.optionsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "rowCount columnCount"
+    "rowGap columnGap"
+    "viewCode viewCode";
+  border: 1px solid #2f343d;
+  border-radius: 0.2rem;
+  background-color: #1d2128;
+  width: 100%;
+  padding: 1.2em 1.7em 1.7em 1.7em;
+  row-gap: 1.4em;
+  column-gap: 0.7em;
+  justify-items: center;
+
+  @include lt-lg {
+    grid-template-columns: auto 1fr auto;
+
+    grid-template-areas:
+      "rowCount . columnCount"
+      "rowGap . columnGap"
+      "viewCode . viewCode";
+  }
+}
+
+.rowCount,
+.columnCount,
+.rowGap,
+.columnGap {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 0.9em;
+    color: #64748e;
+    margin-bottom: 0.3em;
+  }
+}
+
+.rowCount {
+  grid-area: rowCount;
+}
+
+.columnCount {
+  grid-area: columnCount;
+  margin-left: auto;
+}
+
+.rowGap {
+  grid-area: rowGap;
+}
+
+.columnGap {
+  grid-area: columnGap;
+  margin-left: auto;
+}
+
+.viewCode {
+  grid-area: viewCode;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5957ff;
+  width: 100%;
+  margin-top: 0.7em;
+  padding: 0.7rem 0.7rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  background-color: rgba(90, 87, 255, 0.1);
+  border: 1px solid #5957ff;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba(90, 87, 255, 0.2);
+  }
+}

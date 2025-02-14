@@ -1,0 +1,115 @@
+@use "../../../../../../styles/media-queries.scss" as *;
+
+.renameModal {
+  display: grid;
+  position: absolute;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "titlebar titlebar"
+    "input input"
+    ". saveBtn";
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  height: max-content;
+  border: 1px solid #2f343d;
+  border-radius: 0.3em;
+  background-color: #171b22;
+  animation: scaleUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  transition: all 0.2s ease-in-out;
+
+  @include lt-lg {
+    width: 50vw;
+  }
+
+  @include lt-md {
+    width: 70vw;
+  }
+
+  @include lt-sm {
+    width: 80vw;
+  }
+}
+
+.titleBar {
+  grid-area: titlebar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #2f343d;
+
+  span {
+    color: #455063;
+    font-size: 0.9em;
+
+    @include lt-sm {
+      font-size: 0.8em;
+    }
+  }
+
+  button {
+    grid-area: closeBtn;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 1.8em;
+    width: 1.8em;
+    margin: 0.5em 0.5em 0 0.5em;
+    border-radius: 0.2em;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #2f343d70;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.input {
+  grid-area: input;
+  padding: 2em 1em;
+
+  input {
+    color: #aaa;
+    font-size: 0.9rem;
+    width: 100%;
+    font-family: inherit;
+    padding: 0.7rem 0.8rem;
+    background-color: #1c2026;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #2f343d;
+
+    &:focus {
+      background-color: #232830;
+    }
+
+    @include lt-sm {
+      font-size: 0.8em;
+    }
+  }
+}
+
+.saveBtn {
+  grid-area: saveBtn;
+  background-color: #6e6cff;
+  padding: 0.6rem 0.8rem;
+  transition: background-color 0.2s ease-in-out;
+  margin: 0 1.2rem 1.2rem 0;
+  border-radius: 0.2rem;
+
+  &:hover {
+    background-color: #5553ff;
+  }
+
+  @include lt-sm {
+    font-size: 0.8em;
+  }
+}

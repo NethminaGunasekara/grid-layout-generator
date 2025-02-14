@@ -1,0 +1,23 @@
+@use "../../styles/media-queries.scss" as *;
+
+.instructions {
+  display: flex;
+  color: #eaeaea;
+  flex-direction: column;
+  height: max-content;
+  width: 100%;
+  margin-top: 4rem;
+
+  @include lt-lg {
+    padding: 0 0.7rem;
+  }
+
+  p {
+    color: #b9bbbd;
+  }
+
+  h2 {
+    padding: 0;
+    margin: 0;
+  }
+}

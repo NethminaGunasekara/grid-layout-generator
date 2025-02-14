@@ -1,0 +1,6 @@
+.colSizes {
+  display: grid;
+  grid-area: col-sizes;
+  grid-template-columns: var(--grid-columns);
+  justify-items: center;
+}

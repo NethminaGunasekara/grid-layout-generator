@@ -1,0 +1,48 @@
+@use "../../../../../styles/media-queries.scss" as *;
+
+.count {
+  display: flex;
+  height: 2rem;
+  width: max-content;
+  border: 1px solid #64748e;
+
+  input {
+    border: none;
+    outline: none;
+    width: 3.4em;
+    text-align: center;
+    background-color: #1f232c;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  button {
+    height: 100%;
+    width: 2em;
+    border: none;
+    background-color: #323943;
+  }
+
+  @include lt-lg {
+    height: 2rem;
+
+    input {
+      width: 3.4em;
+    }
+
+    button {
+      width: 1.7em;
+    }
+  }
+
+  @include lt-sm {
+  }
+}
+
+.toast {
+  width: max-content;
+}

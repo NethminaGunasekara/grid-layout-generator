@@ -1,0 +1,26 @@
+@use "../../../../styles/media-queries.scss" as *;
+
+.layout {
+  display: grid;
+  grid-area: grid;
+  background-color: #1f232c;
+  border: 2px solid #6e6cff;
+  grid-template-rows: var(--grid-rows);
+  grid-template-columns: var(--grid-columns);
+  row-gap: var(--row-gap);
+  column-gap: var(--column-gap);
+  margin: 0.7rem 0 0 0.7rem;
+  min-height: 77vh;
+
+  @include lt-lg {
+    min-height: 60vh;
+  }
+
+  @include lt-sm {
+    min-height: 40vh;
+  }
+
+  @include lt-sm {
+    margin: 0.4rem 0 0 0.4rem;
+  }
+}

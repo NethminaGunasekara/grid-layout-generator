@@ -1,0 +1,51 @@
+@use "../../styles/media-queries.scss" as *;
+
+.footer {
+  display: flex;
+  width: 100%;
+  font-size: 1rem;
+  padding: 1.7em 0;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    color: #64748e;
+    font-weight: 500;
+  }
+
+  button {
+    display: flex;
+    color: #64748e;
+    height: 2.2em;
+    font-family: inherit;
+    font-size: 0.95em;
+    background-color: #1d2128;
+    border: 1px solid #2f343d;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5em;
+    margin-left: 0.5em;
+    border-radius: 0.2em;
+    transition: background-color 0.2s ease-in-out;
+
+    img {
+      height: 1em;
+    }
+
+    span {
+      font-size: 0.95em;
+      width: max-content;
+      font-weight: 500;
+      margin-top: -0.2em;
+      margin-left: 0.5em;
+    }
+  }
+
+  @include lt-md {
+    font-size: 0.9em;
+  }
+
+  @include lt-sm {
+    font-size: 0.8em;
+  }
+}

@@ -1,0 +1,51 @@
+@use "../../../../../../../styles/media-queries.scss" as *;
+
+.active {
+  background-color: #20242b;
+}
+
+.layout {
+  cursor: pointer;
+}
+
+.layout td {
+  padding: 0.7rem 0.7rem;
+  font-size: 0.9rem;
+
+  @include lt-sm {
+    font-size: 0.7rem;
+  }
+}
+
+.actions {
+  display: flex;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border: 1px solid #2f343d;
+    border-radius: 0.2em;
+    background-color: #1f232c;
+    transition: background-color 0.2s ease-in-out;
+
+    &:not(:first-child) {
+      margin-left: 0.4em;
+    }
+
+    img {
+      height: 1.1em;
+      width: 1.1em;
+    }
+
+    @include lt-sm {
+      font-size: 0.7rem;
+    }
+
+    &:hover {
+      background-color: #2f343d;
+    }
+  }
+}

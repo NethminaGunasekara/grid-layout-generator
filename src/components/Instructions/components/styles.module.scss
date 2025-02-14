@@ -1,0 +1,65 @@
+@use "../../../styles/media-queries.scss" as *;
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "heading ."
+    "image content";
+
+  column-gap: 1.2rem;
+  margin-top: 1.2rem;
+
+  h3 {
+    font-weight: 500;
+    grid-area: heading;
+  }
+
+  p {
+    font-weight: 500;
+  }
+
+  .image {
+    grid-area: image;
+    height: auto;
+    width: min(30vw, 340px);
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  @include lt-md {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "image"
+      "content";
+
+    .image {
+      width: 30vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @include lt-sm {
+    .image {
+      width: 60vw;
+    }
+  }
+}
+
+.inlineIcon {
+  display: inline-block;
+  height: 1.2rem;
+  vertical-align: middle;
+  margin: auto 0.2rem;
+}
+
+.content {
+  ol {
+    color: #64748e;
+  }
+}

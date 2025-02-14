@@ -1,0 +1,39 @@
+@use "../../../../styles/media-queries.scss" as *;
+
+.options {
+  grid-area: options;
+  font-size: 1rem;
+  display: grid;
+  align-items: center;
+  align-self: stretch;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "gridOptions"
+    "areaOptions";
+
+  row-gap: 1.7rem;
+
+  justify-content: space-between;
+  margin: 0 0 0 1.4em;
+  height: max-content;
+  min-width: 100%;
+
+  @include lt-lg {
+    margin: 1.7rem 0 0 0;
+    grid-template-areas: "gridOptions areaOptions";
+    row-gap: 1.7rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+  }
+
+  @include lt-sm {
+    grid-template-areas:
+      "gridOptions"
+      "areaOptions";
+    margin-top: 1.7rem;
+    row-gap: 1.7rem;
+    grid-template-columns: 1fr;
+    column-gap: 3rem;
+  }
+}

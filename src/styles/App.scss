@@ -1,0 +1,7 @@
+@use "./media-queries.scss" as *;
+
+.toast-container {
+  @include gt-xs {
+    width: max-content;
+  }
+}

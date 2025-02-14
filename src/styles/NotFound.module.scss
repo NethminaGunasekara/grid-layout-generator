@@ -1,0 +1,51 @@
+@use "../styles/media-queries.scss" as *;
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  transition: all 0.2s ease-in-out;
+
+  @include gt-sm {
+    font-size: 1.4rem;
+  }
+
+  h1 {
+    margin: 0;
+    line-height: 1;
+    font-size: 4.4em;
+  }
+
+  p {
+    margin: 0.8em 0 1.2em 0;
+    font-size: 1.2em;
+    font-weight: 700;
+
+    span {
+      color: #6e6cff;
+    }
+  }
+
+  button {
+    color: #6e6cff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    border: 1px solid #6e6cff;
+    background-color: rgba(111, 108, 255, 0.1);
+    padding: 0.7em 1.2em;
+    cursor: pointer;
+    border-radius: 0.2em;
+    transition: background-color 0.2s ease-in-out;
+
+    @include gt-sm {
+      font-size: 1.1rem;
+    }
+
+    &:hover {
+      background-color: rgba(111, 108, 255, 0.2);
+    }
+  }
+}

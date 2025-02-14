@@ -1,0 +1,35 @@
+@use "../../../../../styles/media-queries.scss" as *;
+
+.gapInput {
+  display: flex;
+  border: 1px solid #64748e;
+  height: 2em;
+  width: max-content;
+
+  input {
+    border: none;
+    outline: none;
+    background-color: #1f232c;
+    width: 3.4em;
+    text-align: center;
+  }
+
+  select {
+    border: none;
+    outline: none;
+    background-color: #323943;
+    padding: 0 0.5em;
+  }
+
+  @include lt-lg {
+    height: 1.9em;
+
+    input {
+      width: 3em;
+    }
+  }
+}
+
+.toast {
+  width: max-content;
+}

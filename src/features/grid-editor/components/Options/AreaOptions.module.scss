@@ -1,0 +1,83 @@
+@use "../../../../styles/media-queries.scss" as *;
+
+.gridOptions {
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  align-self: stretch;
+}
+
+.areaIcon {
+  height: 0.95em;
+}
+
+.optionsHeader {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.7em;
+
+  span {
+    color: #b9bbbd;
+    font-size: 0.95em;
+    margin-left: 0.7em;
+  }
+}
+
+.optionsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid #2f343d;
+  border-radius: 0.2rem;
+  background-color: #1d2128;
+  width: auto;
+  padding: 1.2em 1.7em 1.7em 1.7em;
+  row-gap: 1em;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    color: #64748e;
+    font-size: 0.95rem;
+  }
+}
+
+.areaPlacement {
+  display: none;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "row-start . column-start"
+    "row-end . column-end";
+  row-gap: 0.7em;
+  column-gap: 0.7em;
+
+  label {
+    color: #64748e;
+    font-size: 0.95rem;
+  }
+
+  div:nth-child(1) {
+    grid-area: row-start;
+  }
+
+  div:nth-child(2) {
+    grid-area: column-start;
+  }
+
+  div:nth-child(3) {
+    grid-area: row-end;
+  }
+
+  div:nth-child(4) {
+    grid-area: column-end;
+  }
+}
+
+@include lt-sm {
+  .areaPlacement {
+    display: grid;
+  }
+}

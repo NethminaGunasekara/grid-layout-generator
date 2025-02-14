@@ -1,0 +1,197 @@
+@use "../../../../../../styles/media-queries.scss" as *;
+
+.saveModal {
+  display: grid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vw;
+  transform: translate(-50%, -50%);
+  background-color: #171b22;
+  border: 1px solid #2f343d;
+  border-radius: 0.3em;
+  animation: scaleUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  transition: all 0.2s ease-in-out;
+
+  * {
+    transition: all 0.2s ease-in-out;
+  }
+
+  @include lt-lg {
+    width: 70vw;
+  }
+
+  @include lt-md {
+    width: 90vw;
+  }
+}
+
+.titlebar {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 1.7rem 1.4rem;
+
+  h2 {
+    margin: auto;
+    font-size: 1.4rem;
+    transform: translateX(30%);
+
+    span {
+      color: #6e6cff;
+      font-weight: inherit;
+      transition: none;
+    }
+  }
+
+  button {
+    display: flex;
+    font-family: inherit;
+    background-color: #1f232c;
+    border: 1px solid #2f343d;
+    top: 0;
+    right: 0;
+    padding: 0.6rem 0.7rem;
+
+    span {
+      color: #bcbdc0;
+      font-family: inherit;
+      font-weight: 500;
+      margin-left: 0.5rem;
+    }
+  }
+
+  @include lt-md {
+    h2 {
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    button {
+      padding: 0.4rem 0.4rem;
+
+      img {
+        height: 0.85rem;
+      }
+
+      span {
+        font-size: 0.8rem;
+        margin-top: -1px;
+        margin-left: 0.3rem;
+      }
+    }
+  }
+
+  @include lt-sm {
+    h2 {
+      margin: auto;
+      font-size: 1rem;
+      transform: translateX(10%);
+    }
+
+    button {
+      padding: 0.4rem 0.4rem;
+
+      img {
+        height: 0.85rem;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+.modalBody {
+  padding: 0 1.4rem;
+  min-height: 22vh;
+  max-height: 40vh;
+  overflow: auto;
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  thead {
+    border-bottom: 1px solid #2f343d;
+
+    th:nth-child(2) {
+      width: 14vw;
+    }
+
+    th:nth-child(3) {
+      width: 10vw;
+    }
+
+    @include lt-md {
+      th:nth-child(2) {
+        width: max-content;
+      }
+
+      th:nth-child(3) {
+        width: 7rem;
+      }
+    }
+
+    @include lt-sm {
+      th:nth-child(3) {
+        width: 6rem;
+      }
+    }
+  }
+
+  th {
+    color: #b9bbbd;
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 0.7rem 0.7rem;
+    font-weight: 400;
+    border-bottom: 1px solid #2f343d;
+
+    @include lt-sm {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.modalActions {
+  display: flex;
+  padding: 1.4rem 1.4rem;
+
+  button {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    transition: background-color 0.2s ease-in-out;
+
+    @include lt-sm {
+      font-size: 0.8rem;
+    }
+  }
+
+  .cancelBtn {
+    color: #6e6cff;
+    background-color: #1d2132;
+    border: 1px solid #6e6cff;
+    margin-left: auto;
+
+    &:hover {
+      background-color: #21253d;
+    }
+  }
+
+  .loadBtn {
+    color: #fff;
+    background-color: #6e6cff;
+    border: none;
+    margin-left: 1em;
+
+    &:hover {
+      background-color: #5553ff;
+    }
+  }
+}

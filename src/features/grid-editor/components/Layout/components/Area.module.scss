@@ -1,0 +1,128 @@
+@use "../../../../../styles/media-queries.scss" as *;
+
+.area {
+  display: grid;
+  font-size: 1rem;
+  cursor: pointer;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "id . deleteButton"
+    "moveButton moveButton moveButton"
+    ". . resizeButton";
+  align-items: center;
+  justify-items: center;
+  pointer-events: auto;
+}
+
+.input {
+  grid-area: id;
+  padding: 0.5rem;
+  width: 8ch;
+  color: #c7c7c7;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 0.75rem;
+
+  @include lt-lg {
+    font-size: 0.6rem;
+  }
+
+  @include lt-sm {
+    width: 8ch;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton {
+  grid-area: deleteButton;
+
+  img {
+    height: 1.2rem;
+  }
+}
+
+.moveButton {
+  cursor: move;
+  grid-area: moveButton;
+
+  img {
+    height: 1.7em;
+  }
+}
+
+.resizeButton {
+  cursor: se-resize;
+  grid-area: resizeButton;
+  padding: 0.5em;
+
+  img {
+    height: 0.7rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@include lt-lg {
+  .id {
+    margin-top: -0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .deleteButton {
+    padding: 0.3em;
+    margin-right: -0.1rem;
+  }
+
+  .moveButton img {
+    height: 1.4rem;
+  }
+
+  .resizeButton {
+    padding: 0.3em;
+    margin-right: -0.5rem;
+
+    img {
+      height: 0.6rem;
+    }
+  }
+}
+
+@include lt-sm {
+  .area {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .id {
+    grid-area: 1 / 1 / 2 / 2;
+    font-size: 0.6rem;
+    text-align: left;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .deleteButton,
+  .moveButton,
+  .resizeButton {
+    display: none;
+  }
+}
+
+.pointer {
+  position: absolute;
+  background-color: #c7c7c770;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+
+  top: var(--top);
+  left: var(--left);
+}

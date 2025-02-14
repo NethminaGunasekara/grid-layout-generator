@@ -1,0 +1,8 @@
+.cell {
+  cursor: pointer;
+  border: 1px dashed #475064;
+}
+
+.cell.marked {
+  background-color: rgba(110, 108, 255, 0.1);
+}

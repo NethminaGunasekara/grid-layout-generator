@@ -1,0 +1,6 @@
+.rowSizes {
+  display: grid;
+  grid-area: row-sizes;
+  grid-template-rows: var(--grid-rows);
+  align-items: center;
+}

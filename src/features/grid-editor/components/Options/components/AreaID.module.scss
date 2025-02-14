@@ -1,0 +1,17 @@
+.input {
+  color: #fff;
+  height: 2.1rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: #323943;
+  border: none;
+  border-radius: 0.1rem;
+  margin-top: 0.2rem;
+  outline: 1px solid #64748e;
+  padding: 0.4rem 0 0.5rem 0.5rem;
+  border-right: 0.4rem solid transparent;
+
+  &:disabled {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
