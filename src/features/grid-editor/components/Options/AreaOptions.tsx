@@ -19,7 +19,7 @@ export default function AreaOptions() {
         <div className={styles.optionsContainer}>
           <div className={styles.input}>
             <label>Areas Available</label>
-            <Select type="areas-available" />
+            <Select type="areas-available" data-testid="areas-available" />
           </div>
 
           <div className={styles.input}>

@@ -34,7 +34,9 @@ export default function Layout(props: LayoutProps) {
         data-testid="saved-layout"
       >
         {/* Layout Name */}
-        <td className={styles.layoutName}>{props.layout.name}</td>
+        <td className={styles.layoutName} data-testid="layout-name">
+          {props.layout.name}
+        </td>
 
         {/* Last Modified Date */}
         <td className={styles.lastModified}>{props.layout.lastModified}</td>

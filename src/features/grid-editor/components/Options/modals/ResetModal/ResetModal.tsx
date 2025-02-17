@@ -10,7 +10,10 @@ interface ResetModalProps {
 export default function ResetModal({ onClose, onReset }: ResetModalProps) {
   return (
     <ModalBackground onCLick={onClose}>
-      <div className={styles.resetModal} data-testid="grid-reset">
+      <div
+        className={styles.resetModal}
+        data-testid="grid-reset-confirmation-modal"
+      >
         {/* Modal titlebar */}
         <div className={styles.titlebar}>
           <span>Reset Grid</span>

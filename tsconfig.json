@@ -1,5 +1,14 @@
 {
   "files": [],
+  "compilerOptions": {
+    "types": ["cypress", "node"],
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true
+  },
+  "types": ["cypress", "node"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
