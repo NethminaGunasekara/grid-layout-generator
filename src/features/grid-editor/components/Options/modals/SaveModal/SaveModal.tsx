@@ -33,7 +33,7 @@ export default function SaveModal({ onClose }: SaveModalProps) {
   const [renameModalState, setRenameModalState] = useState<RenameModalState | null>(null); // prettier-ignore
 
   const [layouts, setLayouts] = useState<SavedLayout[]>(
-    () => retrieveLayouts() || []
+    () => retrieveLayouts() || [],
   );
 
   const layout = useAppSelector((state) => state.layout);
@@ -58,7 +58,7 @@ export default function SaveModal({ onClose }: SaveModalProps) {
       });
 
       toast.success(
-        `The layout "${layouts[selectedLayoutIndex].name}" has been updated successfully!`
+        `The layout "${layouts[selectedLayoutIndex].name}" has been updated successfully!`,
       );
 
       // Update the list of layouts available in state
@@ -95,11 +95,11 @@ export default function SaveModal({ onClose }: SaveModalProps) {
     dispatch(
       applyLayout({
         ...layouts[index].layout,
-      })
+      }),
     );
 
     toast.success(
-      `The layout "${layouts[index].name}" has been loaded successfully!`
+      `The layout "${layouts[index].name}" has been loaded successfully!`,
     );
 
     onClose();
@@ -112,7 +112,7 @@ export default function SaveModal({ onClose }: SaveModalProps) {
     setLayouts(retrieveLayouts() || []);
 
     toast.success(
-      `The layout "${layouts[index].name}" has been deleted successfully!`
+      `The layout "${layouts[index].name}" has been deleted successfully!`,
     );
   };
 
@@ -131,7 +131,11 @@ export default function SaveModal({ onClose }: SaveModalProps) {
               Saved <span>Grid</span> Layouts
             </h2>
 
-            <button type="button" onClick={handleSave} data-testid="set-name">
+            <button
+              type="button"
+              onClick={handleSave}
+              data-testid="save-layout"
+            >
               <img src={SaveIcon} alt="Save icon" />
               <span>Save Layout</span>
             </button>
@@ -181,6 +185,7 @@ export default function SaveModal({ onClose }: SaveModalProps) {
               type="button"
               onClick={onClose}
               className={styles.cancelBtn}
+              data-testid="close-save-modal"
             >
               Cancel
             </button>

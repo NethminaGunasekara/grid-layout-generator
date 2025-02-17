@@ -268,7 +268,7 @@ export default function Area({
     rowStart: number,
     columnStart: number,
     rowEnd: number,
-    columnEnd: number
+    columnEnd: number,
   ) => {
     const cells = [];
 
@@ -282,7 +282,6 @@ export default function Area({
   };
 
   // Marks the list of cells that'll be occupied when the user resizes the area
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setDestinationCells = (targetCell: CellData) => {
     const rowStart = areaPosition.rowStart;
     const columnStart = areaPosition.columnStart;
@@ -295,79 +294,84 @@ export default function Area({
       rowStart,
       columnStart,
       rowEnd,
-      columnEnd
+      columnEnd,
     );
 
     dispatch(setDestinationArea(occupiedCells));
   };
 
-  useEffect(() => {
-    if (!areaRef.current) return;
-
-    const onResize = (e: MouseEvent) => {
+  useEffect(
+    () => {
       if (!areaRef.current) return;
 
-      const offsetX = e.clientX - startPosition.clientX;
-      const offsetY = e.clientY - startPosition.clientY;
+      const onResize = (e: MouseEvent) => {
+        if (!areaRef.current) return;
 
-      areaRef.current.style.position = "fixed";
+        const offsetX = e.clientX - startPosition.clientX;
+        const offsetY = e.clientY - startPosition.clientY;
 
-      areaRef.current.style.top = `${areaStartPosition.y}px`;
-      areaRef.current.style.left = `${areaStartPosition.x}px`;
+        areaRef.current.style.position = "fixed";
 
-      areaRef.current.style.width = `${initialAreaSize.width + offsetX}px`;
-      areaRef.current.style.height = `${initialAreaSize.height + offsetY}px`;
+        areaRef.current.style.top = `${areaStartPosition.y}px`;
+        areaRef.current.style.left = `${areaStartPosition.x}px`;
 
-      const cellData = getCellData();
-      const bottomRight = getBottomRightPosition();
+        areaRef.current.style.width = `${initialAreaSize.width + offsetX}px`;
+        areaRef.current.style.height = `${initialAreaSize.height + offsetY}px`;
 
-      if (!bottomRight) return;
+        const cellData = getCellData();
+        const bottomRight = getBottomRightPosition();
 
-      const matchingCell = cellData.find((cell) => {
-        return (
-          cell.left <= bottomRight.x &&
-          cell.right >= bottomRight.x &&
-          cell.top <= bottomRight.y &&
-          cell.bottom >= bottomRight.y
-        );
-      });
+        if (!bottomRight) return;
 
-      if (!matchingCell) return;
+        const matchingCell = cellData.find((cell) => {
+          return (
+            cell.left <= bottomRight.x &&
+            cell.right >= bottomRight.x &&
+            cell.top <= bottomRight.y &&
+            cell.bottom >= bottomRight.y
+          );
+        });
 
-      // Cells to be occupied
-      setDestinationCells({
-        row: matchingCell.row,
-        column: matchingCell.column,
-      });
-    };
+        if (!matchingCell) return;
 
-    if (canResize === null || !areaRef.current || !resizeBtnRef.current) return;
+        // Cells to be occupied
+        setDestinationCells({
+          row: matchingCell.row,
+          column: matchingCell.column,
+        });
+      };
 
-    // If the user is resizing the area
-    if (canResize) {
-      setIsSelected(false);
-      document.addEventListener("mousemove", onResize);
-      document.addEventListener("mouseup", handleMouseUp);
-    } else {
-      setIsSelected(selected);
-      document.removeEventListener("mousemove", onResize);
-    }
+      if (canResize === null || !areaRef.current || !resizeBtnRef.current)
+        return;
 
-    return () => {
-      document.removeEventListener("mousemove", onResize);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [
-    areaStartPosition.x,
-    areaStartPosition.y,
-    canResize,
-    initialAreaSize.height,
-    initialAreaSize.width,
-    selected,
-    setDestinationCells,
-    startPosition.clientX,
-    startPosition.clientY,
-  ]);
+      // If the user is resizing the area
+      if (canResize) {
+        setIsSelected(false);
+        document.addEventListener("mousemove", onResize);
+        document.addEventListener("mouseup", handleMouseUp);
+      } else {
+        setIsSelected(selected);
+        document.removeEventListener("mousemove", onResize);
+      }
+
+      return () => {
+        document.removeEventListener("mousemove", onResize);
+        document.removeEventListener("mouseup", handleMouseUp);
+      };
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [
+      areaStartPosition.x,
+      areaStartPosition.y,
+      canResize,
+      initialAreaSize.height,
+      initialAreaSize.width,
+      selected,
+      setDestinationCells,
+      startPosition.clientX,
+      startPosition.clientY,
+    ],
+  );
 
   /**
    * Sets the start position and allows the area to be moved.
@@ -451,7 +455,7 @@ export default function Area({
           type="text"
           ref={input}
           className={styles.input}
-          data-testid="area-id"
+          data-testid={`${id}-id-input`}
           defaultValue={id}
           onBlur={handleChange}
         />
@@ -459,6 +463,7 @@ export default function Area({
         <button
           className={isSelected ? styles.deleteButton : styles.hidden}
           onClick={() => dispatch(removeArea(id))}
+          data-testid={`${id}-delete-button`}
         >
           <img src={deleteButton} alt="Delete icon" />
         </button>
@@ -467,6 +472,7 @@ export default function Area({
           ref={moveBtnRef}
           className={isSelected ? styles.moveButton : styles.hidden}
           onMouseDown={handleMouseDown}
+          data-testid={`${id}-move-button`}
         >
           <img src={moveButton} alt="Move icon" />
         </button>
@@ -475,6 +481,7 @@ export default function Area({
           ref={resizeBtnRef}
           className={isSelected ? styles.resizeButton : styles.hidden}
           onMouseDown={handleMouseDown}
+          data-testid={`${id}-resize-handle`}
         >
           <img src={resizeButton} alt="Resize icon" />
         </button>

@@ -88,7 +88,7 @@ export default function RenameModal({
     localStorage.setItem("saved-layouts", JSON.stringify(savedLayouts));
 
     toast.success(
-      `The layout "${previousName}" has been renamed successfully!`
+      `The layout "${previousName}" has been renamed successfully!`,
     );
 
     onFinish(); // Update the list of available layouts
@@ -145,7 +145,7 @@ export default function RenameModal({
           type="button"
           onClick={actionType === "save" ? handleSave : handleRename}
           className={styles.saveBtn}
-          data-testid="save-layout"
+          data-testid="finish-save"
         >
           {actionType === "save" ? "Save" : "Rename"} Layout
         </button>
