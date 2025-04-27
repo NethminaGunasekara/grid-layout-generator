@@ -1,10 +1,21 @@
+<div align="center">
+
 # Grid Layout Generator
 
-### Live: [https://cssgrid.nethmina.me](https://cssgrid.nethmina.me)
+[🚀 Getting Started](#getting-started) • [📜 Scripts](#scripts) • [✨ Acknowledgments](#acknowledgments) • [🗺️ Roadmap](#roadmap) • [🤝 Contributing](#contributing)
 
-![Grid Layout Generator](./public/images/og-grid-layout.png)
+![CI Workflow Status](https://img.shields.io/github/actions/workflow/status/NethminaGunasekara/grid-layout-generator/run-tests.yml?label=CI&style=flat-square)
+![License](https://img.shields.io/github/license/NethminaGunasekara/grid-layout-generator?style=flat-square)
+![Top Language](https://img.shields.io/github/languages/top/NethminaGunasekara/grid-layout-generator?style=flat-square)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fgridlayoutgenerator.com&style=flat-square)
+
+</div>
 
 The **Grid Layout Generator** is a web-based tool created with React and Vite, designed to simplify the creation of CSS grid layouts. It allows users to visually design grids, manage grid areas, and provides options to copy or download the generated HTML and CSS code.
+
+### Live: [https://gridlayoutgenerator.com](https://gridlayouttgenerator.com)
+
+![Grid Layout Generator](./public/images/og-grid-layout.png)
 
 ## Features
 
@@ -24,7 +35,7 @@ The **Grid Layout Generator** is a web-based tool created with React and Vite, d
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these steps to set up the project locally:
 
@@ -102,7 +113,7 @@ This project includes the following npm scripts:
 
 ---
 
-## ✨ Acknowledgments
+## Acknowledgments
 
 This project was built with the help of:
 
