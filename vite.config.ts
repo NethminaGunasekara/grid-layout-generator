@@ -22,5 +22,11 @@ export default defineConfig({
 
   server: {
     host: "0.0.0.0",
+    fs: {
+      // Restrict file serving outside of working directory
+      strict: true,
+      // Deny access to these directories
+      deny: [".env", ".env.*", "node_modules"],
+    },
   },
 });
